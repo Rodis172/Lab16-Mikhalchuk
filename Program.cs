@@ -60,39 +60,152 @@
 
 
 
-int[] GenerateScheduleSlots(int lessonsCount) {
-    int[] slots = new int[lessonsCount];
+// int[] GenerateScheduleSlots(int lessonsCount) {
+//     int[] slots = new int[lessonsCount];
 
-    for (int i = 0; i < lessonsCount; i++) {
-        slots[i] = i + 1;
-    }
+//     for (int i = 0; i < lessonsCount; i++) {
+//         slots[i] = i + 1;
+//     }
 
-    return slots;
-}
+//     return slots;
+// }
 
-int[] GenerateEvenSlots(int lessonsCount) {
-    int[] slots = new int[lessonsCount];
+// int[] GenerateEvenSlots(int lessonsCount) {
+//     int[] slots = new int[lessonsCount];
 
-    for (int i = 0; i < lessonsCount; i++) {
-        slots[i] = (i + 1) * 2;
-    }
+//     for (int i = 0; i < lessonsCount; i++) {
+//         slots[i] = (i + 1) * 2;
+//     }
 
-    return slots;
-}
+//     return slots;
+// }
 
-// int[] slots = GenerateScheduleSlots(6);
+// // int[] slots = GenerateScheduleSlots(6);
 
-// foreach (int slot in slots) {
+// // foreach (int slot in slots) {
+// //     Console.WriteLine(slot);
+// // }
+
+// int[] evenSlots = GenerateEvenSlots(6);
+
+// foreach (int slot in evenSlots) {
 //     Console.WriteLine(slot);
 // }
 
-int[] evenSlots = GenerateEvenSlots(6);
 
-foreach (int slot in evenSlots) {
-    Console.WriteLine(slot);
+
+
+
+// // Задача  B
+// int[] sortList = {5, 6, 1, 8, 3, 9, 1, 5, 7, 9 };
+
+// for (int i = 0; i < sortList.Length - 1; i++)
+// {
+//     for (int j = 0; j < sortList.Length - 1 - i; j++)
+//     {
+//         if (sortList[j] < sortList[j + 1])
+//         {
+//             int temp = sortList[j];
+//             sortList[j] = sortList[j + 1];
+//             sortList[j + 1] = temp;
+//         }
+//     }
+// }
+
+// foreach (int list in sortList)
+// {
+//     Console.WriteLine(list);
+// }
+
+
+// // Задача  Г
+// int[] GenerateEvenNumbers(int n)
+// {
+//     int count = n / 2;
+//     int[] result = new int[count];
+
+//     for (int i = 0; i < count; i++)
+//     {
+//         result[i] = (i + 1) * 2;
+//     }
+
+//     return result;
+// }
+
+// int[] evens = GenerateEvenNumbers(9);
+// foreach(int num in evens)
+// {
+//     Console.WriteLine(num);
+// }
+
+
+
+// Console.Write("Введите свою фамилию: ");
+// string surname = Console.ReadLine()!.Trim();
+// if (string.IsNullOrEmpty(surname)) {
+//     Console.WriteLine("Фамилия не введена. Завершение работы.");
+//     return;
+// }
+// Random rnd = new(surname.GetHashCode() + DateTime.Now.DayOfYear);
+// var assigned = Enumerable.Range(1, 10)
+//     .OrderBy(_ => rnd.Next())
+//     .Take(2)
+//     .OrderBy(x => x)
+//     .ToList();
+// Console.WriteLine($"Задачи: №{assigned[0]} и №{assigned[1]}");
+
+
+
+// // Вариант 6
+// int[] numbers = { 7, 1, 5, 3, 9 };
+
+// for (int i = 0; i < numbers.Length - 1; i++)
+// {
+//     for (int j = 0; j < numbers.Length - 1 - i; j++)
+//     {
+//         if (numbers[j] > numbers[j + 1])
+//         {
+//             int temp = numbers[j];
+//             numbers[j] = numbers[j + 1];
+//             numbers[j + 1] = temp;
+//         }
+//     }
+// }
+
+// Console.WriteLine($"Медиана: {numbers[numbers.Length / 2]}");
+
+
+
+// // Вариант 10
+int[] numbers = { 5, 9, 2, 9, 7 };
+
+for (int i = 0; i < numbers.Length - 1; i++)
+{
+    for (int j = 0; j < numbers.Length - 1 - i; j++)
+    {
+        if (numbers[j] > numbers[j + 1])
+        {
+            int temp = numbers[j];
+            numbers[j] = numbers[j + 1];
+            numbers[j + 1] = temp;
+        }
+    }
 }
 
+int max = numbers[numbers.Length - 1];
+bool found = false;
 
+for (int i = numbers.Length - 1; i >= 0; i--)
+{
+    if (numbers[i] != max)
+    {
+        Console.WriteLine($"Второе по величине: {numbers[i]}");
+        found = true;
+        break;
+    }
+}
 
-
-
+if (!found)
+{
+    Console.WriteLine("Второго по величине числа нет");
+}
